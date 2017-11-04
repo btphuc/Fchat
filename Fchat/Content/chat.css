@@ -1,0 +1,182 @@
+*{
+	margin:0;
+	padding:0;
+	/*background-image: url("../image/download1.jpg");
+	background-size: cover;*/
+}
+
+/*.row .col-md-4 .table a{
+	text-decoration-line: none;
+}
+
+.row .col-md-4 {
+	margin-left: 30px;
+}*/
+
+.row .menu {
+	width: 200px;
+	height: 800px;
+	background-color: #333333;
+}
+
+.row .menu .content{
+	height: 50px;
+	width: 185px;
+	background-color: #777777;
+}
+
+.row .menu .content img{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	margin-left: 10px;
+}
+
+.row .menu .mucluc{
+	height: 40px;
+	width: 185px;
+	background-color: #AAAAAA;
+	margin-top: 10px;
+}
+
+.row .menu .menu-chinh {
+	margin:10px;
+
+}
+
+.row .menu .menu-chinh ul li{
+	margin-top:10px;
+
+}
+
+.row .menu .menu-chinh img{
+	width: 50px;
+	height: 50px;	
+}
+
+.row .menu .menu-chinh a{
+	color:gray;
+	padding-left: 10px;
+}
+
+.row .menu .menu-chinh ul li:hover{
+	background-color: white;
+	width: 185px;
+}
+
+.row .row .chat {
+	height: 500px;
+	width: 500px;
+	margin:20px 10px 0 100px;
+	position: relative;
+	right: -200px;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.row .col-md-4 table{
+	margin-left: 20px;
+}
+
+   .chat-area{
+            height: 490px;
+            padding-top:40px;	
+        }
+
+        .chat-content {
+            height: 80%;
+            overflow-y: scroll;
+        }
+
+        .send {
+            padding-left: 20%;
+            padding-right: 5%
+        }
+        .send .message {
+            font-size: 14px;
+            border-radius: 3px;
+            margin-bottom: 24px;
+        }
+        .send .message p {
+            background: hsl(198, 100%, 95%);
+            padding: 0.38462em 0.76923em;
+            border-radius: 5px;
+            margin-bottom: 0; 
+        }    
+
+        .recive {
+            padding-right: 20%;
+            padding-left: 5%
+        }
+        .recive .message {
+            font-size: 14px;
+            border-radius: 3px;
+            margin-bottom: 24px;
+        }
+        .recive .message p {
+            background: #f7f7f7;
+            padding: 0.38462em 0.76923em;
+            border-radius: 5px;
+            margin-bottom: 0;
+        }
+
+        #chat-content::-webkit-scrollbar-track
+        {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            background-color: #F5F5F5;
+        }
+
+        #chat-content::-webkit-scrollbar
+        {
+            width: 12px;
+            background-color: #F5F5F5;
+        }
+
+        #chat-content::-webkit-scrollbar-thumb
+        {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: #555;
+        }
+
+        .txtInputMessage {
+            display: block;
+            margin: 0;
+            width: 100%;
+            border: 0;
+            color: #4d7cea;
+            height: 40px;
+            outline: 0;
+            border-bottom: 1px solid #ddd
+        }     
+
+        .btnSend{
+            background: #007bff;
+            width: 100%;
+            margin-top: 10px;  
+            padding: 12px 20px;
+            font-size: 14px;
+            border: 0;
+            box-shadow: 0 2px 6px -2px rgba(0, 0, 0, .5);
+            transition: all .1;
+            -moz-transition: all .1;
+            -webkit-transition: all .1;
+            -o-transition: all .1;
+            border-radius: 4px; 
+        }   
+
+        .btnSend:hover{
+            background-color: #007bff;
+            box-shadow: 0 4px 14px -6px rgba(0,0,0,.9)
+        }
+
+        .btnSend:active{
+            border: 0;
+            -webkit-transition: all .05s;
+            transition: all .05s;
+            -webkit-transform: scale(.97);
+            transform: scale(.97);
+            -ms-transform: scale(.97);
+            opacity: .9;
+            box-shadow: 0 0 0 0 #000
+        }

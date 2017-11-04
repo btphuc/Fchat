@@ -1,0 +1,360 @@
+﻿
+@{
+    ViewBag.Title = "Chat";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid content">
+    <div class="row">
+        <div class="col-md-6 left">
+            <div class="content">
+                <div class="logan text-center">
+                    <h3 class="header">CHÀO MỪNG ĐẾN VỚI TƯ VẤN TRỰC TUYẾN</h3>
+                    
+
+                    <div class="onlinelist">
+                        <ul id="user" style="list-style-type:none">
+                        </ul>
+                    </div>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn-lienhe" id="btn-lienhe">
+                        Liên Hệ
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="modalHuongDan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Hướng Dẫn</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Bước 1 . Điền đầy đủ thông tin vào Phiếu Khảo Sát</p>
+                            <br>
+                            <p>Bước 2 . Nhấn vào nút LIÊN HỆ để được nhân viên chuyên gia tư vấn cho bạn .</p>
+                            <br>
+                            <p>Trân Trọng . Cảm ơn Quý Khách</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 right">
+
+            <form action="" class="form-horizontal form-survey">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-10 control-label" style="text-align: center; font-size: 30px;padding-left: 80px;">Phiếu Khảo Sát</label><br><br><br>
+                    <cite style="padding-left: 100px;">(Yêu cầu điền đầy đủ thông tin vào phiếu khảo sát)</cite>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-3 control-label">Bạn Tên gì </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="Name" name="Name" placeholder="Họ và Tên ...">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-3 control-label">Giới Tính </label>
+                    <div class="col-sm-5">
+                        <input name="gioitinh" type="radio" value="Nam">Nam
+                        <input name="gioitinh" type="radio" value="Nu" style="margin:10px 0 0 10px;">Nữ
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-3 control-label">Bạn muốn đi đâu </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="where" name="where" placeholder="Địa Điểm ...">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-3 control-label">Thời Gian bao lâu </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="time" name="time" placeholder="Thời Gian ...">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-3 control-label">Phương Tiện như thế nào </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="how" name="how" placeholder="Phương Tiện ...">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-3 control-label">Bạn định đi bao nhiêu người </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="people" name="people" placeholder="số người ...">
+                    </div>
+                </div>
+            </form>
+
+            <div class="chat-area" style="display: none;">
+                <div class="chat-content" id="chat-content">
+                    
+                </div>
+                <div class="textbox-chat">
+                    <input type="text" class="txtInputMessage" id="txtInputMessage" placeholder="Message...">
+                    <button class="btnSend" id="btnSend">Gửi</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Giới Thiệu Về Du Lịch</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Du lịch Việt Nam là một ngành kinh tế mũi nhọn. Đất nước Việt Nam có tiềm năng du lịch đa dạng và phong phú. Năm 2012, số khách quốc tế đến Việt Nam là 6,8 triệu lượt, khách nội địa đạt 32,5 triệu lượt.Doanh thu ngành du lịch Việt Nam năm 2009 đạt từ 68.000 đến 70.000 tỷ đồng năm 2009, 160.000 tỷ đồng năm 2012. Du lịch đóng góp 5% vào GDP của Việt Nam</p>
+                    <br>
+                    <p>Năm 2013, số khách quốc tế đến Việt Nam là 7,57 triệu lượt,khách nội địa đạt 35 triệu lượt.Doanh thu ngành du lịch Việt Nam năm 2013 đạt khoảng 200.000 tỷ đồng.</p>
+                    <br>
+                    <p>Theo Tổng cục du lịch Việt Nam, năm 2014 ngành du lịch Việt Nam thu hút gần 8 triệu lượt khách quốc tế,32-35 triệu khách nội địa, con số dự kiến năm 2020 là 11-12 triệu khách quốc tế; 45-48 triệu khách nội địa. Doanh thu từ du lịch dự kiến sẽ đạt 18-19 tỷ USD năm 2020.</p>
+                    <br>
+                    <p>Tuy nhiên, ngành du lịch Việt Nam từ nhiều năm nay, cũng đang bị báo động về nạn "chặt chém", bắt nạt du khách, hạ tầng cơ sở yếu kém và chất lượng dịch vụ kém, quản lý kém, tạo ấn tượng xấu với du khách.Từ hơn 20 năm phát triển du lịch, Việt Nam chỉ chú trọng khai thác thiên nhiên và thiếu định hướng chiến lược phát triển, đầu tư một cách bài bản cho du lịch, và kém xa các nước khác trong khu vực.Và vẫn chưa có được một sân khấu, nhà hát biểu diễn nghệ thuật dân tộc nào đủ tầm mức để giới thiệu đến du khách quốc tế, để đa dạng hóa sản phẩm du lịch.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- khu vực JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        
+    </div>
+</div>
+@section scripts {
+    <!--Script references. -->
+    <!--The jQuery library is required and is referenced by default in _Layout.cshtml. -->
+    <!--Reference the SignalR library. -->
+    <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
+    <!--Reference the autogenerated SignalR hub script. -->
+    <script src="~/signalr/hubs"></script>
+
+    <!--SignalR script to update the chat page and send messages.-->
+    <script>
+        $(function () {
+            // Reference the auto-generated proxy for the hub.
+            var chat = $.connection.chat;
+
+            chat.client.addNewMessageToPage = function (classofMessage , msg) {
+
+                $('#chat-content').append('<div class="'
+                    + classofMessage    +   '"><div class="message"><p>'
+                    + htmlEncode(msg)   +   '</p ></div></div>');
+
+            };   
+
+            $("#btn-lienhe").click(function () {
+                const Name = $("#Name").val();
+                const Sex = $("input[type='radio']:checked").val();
+                const where = $("#where").val();
+                const how = $("#how").val();
+                const time = $("#time").val();
+
+                const people = $("#people").val();
+
+                var UserName = '@Session["UserName"]';
+                var userID = @Session["UserID"];
+
+                chat.server.join(userID);
+
+                $(".form-survey").fadeOut('slow', function () {
+                    $(".chat-area").fadeIn('slow');
+                });
+                $("#btn-lienhe").addClass("disabled");
+
+
+                //if (!Name && !Sex && !where && !time && !how && !people) {
+                //    $("#modalHuongDan").modal('show');
+                //}
+                //else {
+                //    $(".form-survey").fadeOut('slow', function () {
+                //        $(".chat-area").fadeIn('slow');
+                //    });
+                //}
+            });
+
+            var desID;
+
+            chat.client.reciveMessageOnConnect = function (reqID) {
+                console.log(reqID);
+                var answer = confirm("connect ?");
+                if (answer) {
+                    chat.server.accept(reqID);
+                    desID = reqID;
+                } else {
+                    chat.server.deny(reqID);
+                    desID = '';
+                }
+            }
+
+            $.connection.hub.start()
+                .done(function () {
+                    $('#btnSend').click(function () {
+
+                        if ($('#txtInputMessage').val() == "") {
+                            event.preventDefault();
+                        } else {
+                            // Call the Send method on the hub.
+                            chat.server.sentfkingmessage(desID, $('#txtInputMessage').val());
+                            // Clear text box and reset focus for next comment.
+                            $('#txtInputMessage').val('').focus();
+
+                        }
+                    });
+                    $('#txtInputMessage').keypress(function (event) {
+                        if (event.charCode == 13) {
+                            if ($('#txtInputMessage').val() == "") {
+                                event.preventDefault();
+                            } else {
+                                // Call the Send method on the hub.
+                                chat.server.sentfkingmessage(desID, $('#txtInputMessage').val());
+                                // Clear text box and reset focus for next comment.
+                                $('#txtInputMessage').val('').focus();
+
+                            }
+                        }
+                    });
+
+                })
+                .fail(function () {
+
+                })
+
+            // Create a function that the hub can call back to display messages.
+            @*chat.client.addNewMessageToPage = function (name, message) {
+                // Add the message to the page.
+                var user = '@Session["UserName"]';
+                if (htmlEncode(name) === user) {
+                    $('#chat-content').append('<div class="send"><div class="message"><p>' + htmlEncode(message) +
+                        '</p ></div></div>');
+                } else {
+                    $('#chat-content').append('<div class="recive"><div class="message"><p>' + htmlEncode(message) +
+                        '</p ></div></div>');
+                }
+
+                $('#chat-content').scrollTop(this.height);
+
+            };
+
+            chat.client.updateUserList = function (userList) {
+                console.log(userList);
+                $("#user li").remove();
+                userList.forEach(function (item) {
+                    $("#user").append('<li id="' + item.connectionID + '">' + item.name + '</li>');
+                });
+            }
+
+
+            chat.client.reciveMessageOnConnect = function (from, msg) {
+                console.log(from);
+                console.log(msg);
+                $("#chat-content").append("<p class='text-center'> connect to " + from + " </p>")
+                $("#chat-content").append("<p class='text-center'>" + msg + "</p>");
+
+            };
+            // Get the user name and store it to prepend to messages.
+            //$('#displayname').val(prompt('Enter your name:', ''));
+            // Set initial focus to message input box.
+            $('#txtInputMessage').focus();
+            // Start the connection.
+            $.connection.hub.start().done(function () {
+
+                var UserName = '@Session["UserName"]';
+                var userID = @Session["UserID"];
+
+                //console.log(UserName + ' ' + userID);
+
+                //Nút liên hệ
+
+                $("#btn-lienhe").click(function () {
+                    const Name = $("#Name").val();
+                    const Sex = $("input[type='radio']:checked").val();
+                    const where = $("#where").val();
+                    const how = $("#how").val();
+                    const time = $("#time").val();
+
+                    const people = $("#people").val();
+
+
+                    chat.server.join(userID);
+
+                    $(".form-survey").fadeOut('slow', function () {
+                        $(".chat-area").fadeIn('slow');
+                    });
+                    $("#btn-lienhe").addClass("disabled");
+
+
+                    //if (!Name && !Sex && !where && !time && !how && !people) {
+                    //    $("#modalHuongDan").modal('show');
+                    //}
+                    //else {
+                    //    $(".form-survey").fadeOut('slow', function () {
+                    //        $(".chat-area").fadeIn('slow');
+                    //    });
+                    //}
+                });
+
+
+                //Nút send
+
+                $('#btnSend').click(function () {
+
+                    if ($('#txtInputMessage').val() == "") {
+                        event.preventDefault();
+                    } else {
+                        // Call the Send method on the hub.
+                        chat.server.send(UserName, $('#txtInputMessage').val());
+                        // Clear text box and reset focus for next comment.
+                        $('#txtInputMessage').val('').focus();
+
+                    }
+                });
+                $('#txtInputMessage').keypress(function (event) {
+                    if (event.charCode == 13) {
+                        if ($('#txtInputMessage').val() == "") {
+                            event.preventDefault();
+                        } else {
+                            // Call the Send method on the hub.
+                            chat.server.send(UserName, $('#txtInputMessage').val());
+                            // Clear text box and reset focus for next comment.
+                            $('#txtInputMessage').val('').focus();
+
+                        }
+                    }
+                });
+
+
+                $("#user li").click(function () {
+                    var connectionID = $(this).prop("id");
+                    console.log(connectionID);
+                    $("#user li").removeClass("text-danger");
+                    $(this).addClass("text-danger");
+                })
+            });
+        });*@
+            // This optional function html-encodes messages for display in the page.
+
+            function htmlEncode(value) {
+                var encodedValue = $('<div />').text(value).html();
+                return encodedValue;
+            }
+    });
+    </script>
+}

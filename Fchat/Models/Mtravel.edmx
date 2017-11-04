@@ -1,0 +1,414 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MTravelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CTQ">
+          <Key>
+            <PropertyRef Name="IdQuyen" />
+            <PropertyRef Name="IDuser" />
+          </Key>
+          <Property Name="IdQuyen" Type="int" Nullable="false" />
+          <Property Name="IDuser" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DiaDiem">
+          <Key>
+            <PropertyRef Name="iddiadiem" />
+          </Key>
+          <Property Name="iddiadiem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaLoai" Type="int" Nullable="false" />
+          <Property Name="TenDD" Type="nvarchar" MaxLength="250" />
+          <Property Name="MoTaNgan" Type="ntext" />
+          <Property Name="MoTaChiTiet" Type="ntext" />
+          <Property Name="HinhAnh" Type="nvarchar" MaxLength="300" />
+          <Property Name="Gia" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="KhachSan">
+          <Key>
+            <PropertyRef Name="IdKs" />
+          </Key>
+          <Property Name="IdKs" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idLoai" Type="int" Nullable="false" />
+          <Property Name="Idtn" Type="int" Nullable="false" />
+          <Property Name="TenPhong" Type="nvarchar" MaxLength="250" />
+          <Property Name="SoGiuong" Type="int" />
+        </EntityType>
+        <EntityType Name="LoaiKs">
+          <Key>
+            <PropertyRef Name="idLoai" />
+          </Key>
+          <Property Name="idLoai" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenLoai" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="LoaiPT">
+          <Key>
+            <PropertyRef Name="Idloaipt" />
+          </Key>
+          <Property Name="Idloaipt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenLoai" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="PhanLoai">
+          <Key>
+            <PropertyRef Name="MaLoai" />
+          </Key>
+          <Property Name="MaLoai" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenLoai" Type="nvarchar" MaxLength="250" />
+          <Property Name="ThongTin" Type="ntext" />
+        </EntityType>
+        <EntityType Name="PhuongTien">
+          <Key>
+            <PropertyRef Name="Idpt" />
+          </Key>
+          <Property Name="Idpt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Idloaipt" Type="int" Nullable="false" />
+          <Property Name="TenPT" Type="nvarchar" MaxLength="250" />
+          <Property Name="BienSo" Type="varchar" MaxLength="10" />
+          <Property Name="SoGhe" Type="int" />
+          <Property Name="Gia" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="PQ">
+          <Key>
+            <PropertyRef Name="IdQuyen" />
+          </Key>
+          <Property Name="IdQuyen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Quyen" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="QuanLy">
+          <Key>
+            <PropertyRef Name="Idql" />
+          </Key>
+          <Property Name="Idql" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserN" Type="varchar" MaxLength="250" />
+          <Property Name="Pass" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="TienNghi">
+          <Key>
+            <PropertyRef Name="Idtn" />
+          </Key>
+          <Property Name="Idtn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenTN" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="TinTuc">
+          <Key>
+            <PropertyRef Name="IdTin" />
+          </Key>
+          <Property Name="IdTin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ThongTin" Type="ntext" />
+          <Property Name="Image" Type="nvarchar" MaxLength="250" />
+          <Property Name="TieuDe" Type="nvarchar" MaxLength="250" />
+          <Property Name="NgayDang" Type="smalldatetime" />
+          <Property Name="LuotXem" Type="int" />
+          <Property Name="NguoiDang" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="IDuser" />
+          </Key>
+          <Property Name="IDuser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="250" />
+          <Property Name="UserName" Type="varchar" MaxLength="250" />
+          <Property Name="PassWord" Type="varchar" MaxLength="250" />
+          <Property Name="NgaySinh" Type="smalldatetime" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="500" />
+          <Property Name="DienThoai" Type="varchar" MaxLength="25" />
+          <Property Name="Email" Type="varchar" MaxLength="250" />
+          <Property Name="Phai" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="MTravelModelStoreContainer">
+          <EntitySet Name="CTQ" EntityType="Self.CTQ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DiaDiem" EntityType="Self.DiaDiem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KhachSan" EntityType="Self.KhachSan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoaiKs" EntityType="Self.LoaiKs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoaiPT" EntityType="Self.LoaiPT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhanLoai" EntityType="Self.PhanLoai" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhuongTien" EntityType="Self.PhuongTien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PQ" EntityType="Self.PQ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QuanLy" EntityType="Self.QuanLy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TienNghi" EntityType="Self.TienNghi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TinTuc" EntityType="Self.TinTuc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MTravelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CTQ">
+          <Key>
+            <PropertyRef Name="IdQuyen" />
+            <PropertyRef Name="IDuser" />
+          </Key>
+          <Property Name="IdQuyen" Type="Int32" Nullable="false" />
+          <Property Name="IDuser" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DiaDiem">
+          <Key>
+            <PropertyRef Name="iddiadiem" />
+          </Key>
+          <Property Name="iddiadiem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaLoai" Type="Int32" Nullable="false" />
+          <Property Name="TenDD" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="MoTaNgan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MoTaChiTiet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HinhAnh" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Gia" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="KhachSan">
+          <Key>
+            <PropertyRef Name="IdKs" />
+          </Key>
+          <Property Name="IdKs" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idLoai" Type="Int32" Nullable="false" />
+          <Property Name="Idtn" Type="Int32" Nullable="false" />
+          <Property Name="TenPhong" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SoGiuong" Type="Int32" />
+        </EntityType>
+        <EntityType Name="LoaiK">
+          <Key>
+            <PropertyRef Name="idLoai" />
+          </Key>
+          <Property Name="idLoai" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLoai" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LoaiPT">
+          <Key>
+            <PropertyRef Name="Idloaipt" />
+          </Key>
+          <Property Name="Idloaipt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLoai" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PhanLoai">
+          <Key>
+            <PropertyRef Name="MaLoai" />
+          </Key>
+          <Property Name="MaLoai" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLoai" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ThongTin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PhuongTien">
+          <Key>
+            <PropertyRef Name="Idpt" />
+          </Key>
+          <Property Name="Idpt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Idloaipt" Type="Int32" Nullable="false" />
+          <Property Name="TenPT" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="BienSo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SoGhe" Type="Int32" />
+          <Property Name="Gia" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="PQ">
+          <Key>
+            <PropertyRef Name="IdQuyen" />
+          </Key>
+          <Property Name="IdQuyen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Quyen" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="QuanLy">
+          <Key>
+            <PropertyRef Name="Idql" />
+          </Key>
+          <Property Name="Idql" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserN" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Pass" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TienNghi">
+          <Key>
+            <PropertyRef Name="Idtn" />
+          </Key>
+          <Property Name="Idtn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenTN" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TinTuc">
+          <Key>
+            <PropertyRef Name="IdTin" />
+          </Key>
+          <Property Name="IdTin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ThongTin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TieuDe" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NgayDang" Type="DateTime" Precision="0" />
+          <Property Name="LuotXem" Type="Int32" />
+          <Property Name="NguoiDang" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="IDuser" />
+          </Key>
+          <Property Name="IDuser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HoTen" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="PassWord" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+          <Property Name="DiaChi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DienThoai" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Phai" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="MTravelEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CTQs" EntityType="Self.CTQ" />
+          <EntitySet Name="DiaDiems" EntityType="Self.DiaDiem" />
+          <EntitySet Name="KhachSans" EntityType="Self.KhachSan" />
+          <EntitySet Name="LoaiKs" EntityType="Self.LoaiK" />
+          <EntitySet Name="LoaiPTs" EntityType="Self.LoaiPT" />
+          <EntitySet Name="PhanLoais" EntityType="Self.PhanLoai" />
+          <EntitySet Name="PhuongTiens" EntityType="Self.PhuongTien" />
+          <EntitySet Name="PQs" EntityType="Self.PQ" />
+          <EntitySet Name="QuanLies" EntityType="Self.QuanLy" />
+          <EntitySet Name="TienNghis" EntityType="Self.TienNghi" />
+          <EntitySet Name="TinTucs" EntityType="Self.TinTuc" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MTravelModelStoreContainer" CdmEntityContainer="MTravelEntities">
+          <EntitySetMapping Name="CTQs">
+            <EntityTypeMapping TypeName="MTravelModel.CTQ">
+              <MappingFragment StoreEntitySet="CTQ">
+                <ScalarProperty Name="IdQuyen" ColumnName="IdQuyen" />
+                <ScalarProperty Name="IDuser" ColumnName="IDuser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DiaDiems">
+            <EntityTypeMapping TypeName="MTravelModel.DiaDiem">
+              <MappingFragment StoreEntitySet="DiaDiem">
+                <ScalarProperty Name="iddiadiem" ColumnName="iddiadiem" />
+                <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
+                <ScalarProperty Name="TenDD" ColumnName="TenDD" />
+                <ScalarProperty Name="MoTaNgan" ColumnName="MoTaNgan" />
+                <ScalarProperty Name="MoTaChiTiet" ColumnName="MoTaChiTiet" />
+                <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+                <ScalarProperty Name="Gia" ColumnName="Gia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KhachSans">
+            <EntityTypeMapping TypeName="MTravelModel.KhachSan">
+              <MappingFragment StoreEntitySet="KhachSan">
+                <ScalarProperty Name="IdKs" ColumnName="IdKs" />
+                <ScalarProperty Name="idLoai" ColumnName="idLoai" />
+                <ScalarProperty Name="Idtn" ColumnName="Idtn" />
+                <ScalarProperty Name="TenPhong" ColumnName="TenPhong" />
+                <ScalarProperty Name="SoGiuong" ColumnName="SoGiuong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoaiKs">
+            <EntityTypeMapping TypeName="MTravelModel.LoaiK">
+              <MappingFragment StoreEntitySet="LoaiKs">
+                <ScalarProperty Name="idLoai" ColumnName="idLoai" />
+                <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoaiPTs">
+            <EntityTypeMapping TypeName="MTravelModel.LoaiPT">
+              <MappingFragment StoreEntitySet="LoaiPT">
+                <ScalarProperty Name="Idloaipt" ColumnName="Idloaipt" />
+                <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhanLoais">
+            <EntityTypeMapping TypeName="MTravelModel.PhanLoai">
+              <MappingFragment StoreEntitySet="PhanLoai">
+                <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
+                <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
+                <ScalarProperty Name="ThongTin" ColumnName="ThongTin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhuongTiens">
+            <EntityTypeMapping TypeName="MTravelModel.PhuongTien">
+              <MappingFragment StoreEntitySet="PhuongTien">
+                <ScalarProperty Name="Idpt" ColumnName="Idpt" />
+                <ScalarProperty Name="Idloaipt" ColumnName="Idloaipt" />
+                <ScalarProperty Name="TenPT" ColumnName="TenPT" />
+                <ScalarProperty Name="BienSo" ColumnName="BienSo" />
+                <ScalarProperty Name="SoGhe" ColumnName="SoGhe" />
+                <ScalarProperty Name="Gia" ColumnName="Gia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PQs">
+            <EntityTypeMapping TypeName="MTravelModel.PQ">
+              <MappingFragment StoreEntitySet="PQ">
+                <ScalarProperty Name="IdQuyen" ColumnName="IdQuyen" />
+                <ScalarProperty Name="Quyen" ColumnName="Quyen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuanLies">
+            <EntityTypeMapping TypeName="MTravelModel.QuanLy">
+              <MappingFragment StoreEntitySet="QuanLy">
+                <ScalarProperty Name="Idql" ColumnName="Idql" />
+                <ScalarProperty Name="UserN" ColumnName="UserN" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TienNghis">
+            <EntityTypeMapping TypeName="MTravelModel.TienNghi">
+              <MappingFragment StoreEntitySet="TienNghi">
+                <ScalarProperty Name="Idtn" ColumnName="Idtn" />
+                <ScalarProperty Name="TenTN" ColumnName="TenTN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TinTucs">
+            <EntityTypeMapping TypeName="MTravelModel.TinTuc">
+              <MappingFragment StoreEntitySet="TinTuc">
+                <ScalarProperty Name="IdTin" ColumnName="IdTin" />
+                <ScalarProperty Name="ThongTin" ColumnName="ThongTin" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+                <ScalarProperty Name="NgayDang" ColumnName="NgayDang" />
+                <ScalarProperty Name="LuotXem" ColumnName="LuotXem" />
+                <ScalarProperty Name="NguoiDang" ColumnName="NguoiDang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="MTravelModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="IDuser" ColumnName="IDuser" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phai" ColumnName="Phai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

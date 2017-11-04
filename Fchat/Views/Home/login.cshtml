@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>login</h2>
+
+@using (Html.BeginForm("login", "Home", FormMethod.Post))
+{
+    @ViewBag.err
+    <span> UserName </span>
+    <input type="text" name="username" value="" />
+    <span> Password </span>
+    <input type="password" name="password" value="" />
+    <button type="submit">login</button>
+}

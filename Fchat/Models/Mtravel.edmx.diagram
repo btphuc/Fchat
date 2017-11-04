@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="439ab2952222442b9c51ebbad4fd6eb0" Name="Diagram1">
+        <EntityTypeShape EntityType="MTravelModel.CTQ" Width="1.5" PointX="2.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTravelModel.DiaDiem" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTravelModel.KhachSan" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTravelModel.LoaiK" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTravelModel.LoaiPT" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTravelModel.PhanLoai" Width="1.5" PointX="4.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTravelModel.PhuongTien" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTravelModel.PQ" Width="1.5" PointX="4.625" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTravelModel.QuanLy" Width="1.5" PointX="8.625" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTravelModel.TienNghi" Width="1.5" PointX="8.625" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTravelModel.TinTuc" Width="1.5" PointX="6.875" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTravelModel.User" Width="1.5" PointX="0.875" PointY="7.875" IsExpanded="true" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
